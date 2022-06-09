@@ -11,12 +11,21 @@ import java.util.Optional;
 @Service
 public class PostServiceImpl implements PostService {
 
+    //Sets quantity of posts to be shown on home page
+    int numOfPosts = 5;
+
     @Autowired
     private PostRepository postRepository;
 
     @Override
     public List<Post> getAllPosts() {
-        return postRepository.findAll();
+        return this.postRepository.findAll();
+    }
+
+    //Need to add Pagination functionality first
+    @Override
+    public List<Post> getLatest() {
+        return null;
     }
 
     @Override
@@ -31,7 +40,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void savePost(Post post) {
+    public void createPost(Post post) {
         this.postRepository.save(post);
     }
 }
