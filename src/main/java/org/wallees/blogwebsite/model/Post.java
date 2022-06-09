@@ -1,11 +1,13 @@
 package org.wallees.blogwebsite.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 //Model for each individual blog post
 @Entity
-@Table
+@Table(name = "posts")
 public class Post {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -21,7 +23,7 @@ public class Post {
     private String body;
 
     @Column(name = "date", nullable = false)
-    private String date;
+    private Date date = new Date();
 
     public Long getId() {
         return id;
@@ -55,11 +57,22 @@ public class Post {
         this.body = body;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                ", date=" + date +
+                '}';
     }
 }
