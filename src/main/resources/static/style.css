@@ -1,0 +1,92 @@
+
+
+nav {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 10px;
+    height: 10%;
+    width: 100%;
+
+    justify-content: space-between;
+    color: #f9fcf0;
+    background-color: #3A1027;
+
+    border: solid white;
+}
+
+.NavUL {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+
+
+}
+.NAVli {
+
+    display: inline;
+    width: 100%;
+    background-color: #3A1027;
+    text-decoration: none;
+    color: #D91A5F;
+}
+
+div {
+    padding: 5px;
+}
+
+.remainder {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 10px;
+}
+
+.h1a {
+    background-color:#FEBF10;
+
+
+}
+
+
+.sadface::after {
+    content: "\01F625";
+
+}
+
+
+body {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 10px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 170px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #3A1027;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #D91A5F;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #FEBF10;
+}
+
+
+
