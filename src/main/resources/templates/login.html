@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Required meta tags -->
-    <title>Wallees Home Page</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="style.css">
 
     <!-- Bootstrap CSS -->
@@ -42,18 +42,12 @@
 </div>
 
 <div class="remainder">
-    <h1 class="h1a">Blogpocalypse</h1>
-    <hr>
-    <img class="img1" src="Colin.jpg" alt="Photo of something?">
-    <figcaption><sub>
-        <p>(I don't know I'm just making a spot where we might put in something to separate the nav bar from the blog posts.)</p>
-        <p>and showcasing that I can make emojis and maybe we can make use of that</p>
-        <div class="sadface"></div>
-    </sub></figcaption>
-    <article th:each="blogpost : ${last3Posts}">
-        <h2 th:text="${blogpost.title}"></h2>
-        <p th:text="${blogpost.body}"></p>
-    </article>
+
+    <p> This is where they can login to their account </p>
+
+    <input type="text" placeholder="Username">
+    <input type="text" placeholder="Password">
+    <input type="submit">
 
 </div>
 

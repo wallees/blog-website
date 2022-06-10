@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Required meta tags -->
-    <title>Wallees Home Page</title>
+    <title>Users Page</title>
     <link rel="stylesheet" href="style.css">
 
     <!-- Bootstrap CSS -->
@@ -42,18 +42,10 @@
 </div>
 
 <div class="remainder">
-    <h1 class="h1a">Blogpocalypse</h1>
-    <hr>
-    <img class="img1" src="Colin.jpg" alt="Photo of something?">
-    <figcaption><sub>
-        <p>(I don't know I'm just making a spot where we might put in something to separate the nav bar from the blog posts.)</p>
-        <p>and showcasing that I can make emojis and maybe we can make use of that</p>
-        <div class="sadface"></div>
-    </sub></figcaption>
-    <article th:each="blogpost : ${last3Posts}">
-        <h2 th:text="${blogpost.title}"></h2>
-        <p th:text="${blogpost.body}"></p>
-    </article>
+
+    <p> I'm a little unclear on what the purpose of this page is. Is it just to display a list of the users? </p>
+    <p>If so I think this layout is all we'd really need. Maybe have a place next to each user to display their most recent blog post</p>
+
 
 </div>
 
