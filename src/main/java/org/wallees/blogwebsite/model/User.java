@@ -21,6 +21,14 @@ private String passwordHash;
 @Column(length = 100)
 private String fullName;
 
+public User(){}
+
+public User(String username, String passwordHash, String fullName){
+    this.username = username;
+    this.passwordHash = passwordHash;
+    this.fullName = fullName;
+}
+
 public Long getId() {
 return id;
 }
@@ -50,20 +58,6 @@ return fullName;
 }
 
 public void setFullName(String fullName) {
-this.fullName = fullName;
-}
-
-public User() {
-}
-
-public User(String username, String fullName) {
-this.username = username;
-this.fullName = fullName;
-}
-
-public User(Long id, String username, String fullName) {
-this.id = id;
-this.username = username;
 this.fullName = fullName;
 }
 

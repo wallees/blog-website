@@ -3,16 +3,23 @@ package org.wallees.blogwebsite;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.wallees.blogwebsite.model.Post;
+import org.wallees.blogwebsite.model.User;
 import org.wallees.blogwebsite.repository.PostRepository;
+import org.wallees.blogwebsite.repository.UserRepository;
 
 @Component
 public class DataLoader {
+
     private PostRepository postRepository;
 
+    private UserRepository userRepository;
+
     @Autowired
-    public DataLoader(PostRepository postRepository){
+    public DataLoader(PostRepository postRepository, UserRepository userRepository){
         this.postRepository = postRepository;
+        this.userRepository = userRepository;
         LoadPosts();
+        LoadUsers();
     }
 
     private void LoadPosts(){
@@ -31,5 +38,12 @@ public class DataLoader {
         postRepository.save(new Post(
                 3, "Asynchronous Team-Player", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore."
         ));
+    }
+
+    private void LoadUsers(){
+        userRepository.save(new User("acruz", "temppass", "Amber Cruz"));
+        userRepository.save(new User("prallings", "temppass", "Patrick Rallings"));
+        userRepository.save(new User("creale", "temppass", "Colin Reale"));
+        userRepository.save(new User("janderson", "temppass", "Joseph Anderson"));
     }
 }
