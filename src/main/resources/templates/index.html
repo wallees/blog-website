@@ -31,14 +31,13 @@
 </nav>
 
 <div class="sidenav">
-    <a href="#first">Post 1</a>
-    <a href="#second">Post 2</a>
-    <a href="#third">Post 3</a>
-    <a href="#fourth">Post 4</a>
-    <a href="#fifth">Post 5</a>
+    <a th:each="blogpost : ${last5Posts}"
+       th:href="@{/blogpost/{id}(id=${blogpost.id})}"
+       th:text="${'Post '+ blogpost.id}"></a>
+
 </div>
 
-<div class="notsidebar">
+<div class="remainder">
     <h1 class="h1a">Blogpocalypse</h1>
     <hr>
     <img class="img1" src="Colin.jpg" alt="Photo of something?">
@@ -47,25 +46,11 @@
         <p>and showcasing that I can make emojis and maybe we can make use of that</p>
         <div class="sadface"></div>
     </sub></figcaption>
-    <div class="latest">
-        <h2>Placeholder header for Most Recent Post</h2>
-        <p>Placeholder blogpost body of text! These three placeholder blog posts are to fulfill the requirement that the project display the three most recent blog posts on the home page.</p>
-    </div>
+    <article th:each="blogpost : ${last3Posts}">
+        <h2 th:text="${blogpost.title}"></h2>
+        <p th:text="${blogpost.body}"></p>
+    </article>
 
-    <div class="second">
-        <h2>Placeholder header for Second Most Recent Post</h2>
-
-        <ul>
-            <li> I am unsure how we will format this information with respect to linking it to the information stored in our backend!</li>
-            <li>So I put some Line items in just in case it would help to have multiple options for formatting. </li>
-
-        </ul>
-    </div>
-
-    <div class="third">
-        <h2>Placeholder header for Third Most Recent Post</h2>
-        <p>Here is my final example blog post. So far I can't claim to have bettered humanity in any concrete or measurable way, BUT stay tuned, my code is in alpha. Once this project hits beta testing, you'll see. And by the time it releases, it'll be too late.</p>
-    </div>
 </div>
 
 
