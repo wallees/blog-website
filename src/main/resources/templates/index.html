@@ -33,11 +33,11 @@
 <div class="sidenav">
     <a th:each="blogpost : ${last5Posts}"
        th:href="@{/blogpost/{id}(id=${blogpost.id})}"
-       th:text="Post ${blogpost.id}"></a>
+       th:text="${'Post '+ blogpost.id}"></a>
 
 </div>
 
-<div class="notsidebar">
+<div class="remainder">
     <h1 class="h1a">Blogpocalypse</h1>
     <hr>
     <img class="img1" src="Colin.jpg" alt="Photo of something?">
