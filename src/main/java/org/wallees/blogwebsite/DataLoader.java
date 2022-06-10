@@ -17,19 +17,19 @@ public class DataLoader {
 
     private void LoadPosts(){
         postRepository.save(new Post(
-                1, "Developer Dynamic", "The CSV Linux is down, secure the public environment"
+                1, "Developer Dynamic", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         ));
         postRepository.save(new Post(
-                2, "Sorted Gulp", "So code-splitting the library won''t do anything, we need to lazy eval the greenfield LIFO convention!"
+                2, "Sorted Craze", "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         ));
         postRepository.save(new Post(
-                1, "CSS grid", "Queue val Chrome bubble sort key-value callback hell."
+                1, "CSS grid", "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         ));
         postRepository.save(new Post(
-                3, "Injection Hipchat", "Hacker News heap sort free as speech contribution killer app architecture."
+                3, "Injection Hipchat", "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         ));
         postRepository.save(new Post(
-                3, "Asynchronous Team-Player", "Fullstack design waterfall Github duck typing a place for everything JVM view-model CSV. Ubuntu developer callback hell DSL YAML flexbox middleware killer app. Keycaps domain font native convention static progressive web app."
+                3, "Asynchronous Team-Player", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore."
         ));
     }
 }
