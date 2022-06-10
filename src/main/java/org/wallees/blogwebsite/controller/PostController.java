@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.wallees.blogwebsite.model.Post;
 import org.wallees.blogwebsite.service.PostService;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,6 +24,10 @@ public class PostController {
     @GetMapping("/")
     public String viewHomePage(Model model){
         List<Post> allPosts = postService.getAllPosts();
+        allPosts.sort (
+                (a,b) -> -a.getDate().compareTo(b.getDate())
+        );
+
         List<Post> last3Posts = allPosts.stream().limit(3).collect(Collectors.toList());
         model.addAttribute("last3Posts", last3Posts);
         List<Post> last5Posts = allPosts.stream().limit(5).collect(Collectors.toList());
