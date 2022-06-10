@@ -24,6 +24,8 @@ public class PostController {
         List<Post> allPosts = postService.getAllPosts();
         List<Post> last3Posts = allPosts.stream().limit(3).collect(Collectors.toList());
         model.addAttribute("last3Posts", last3Posts);
+        List<Post> last5Posts = allPosts.stream().limit(5).collect(Collectors.toList());
+        model.addAttribute("last5Posts", last5Posts);
         return "index";
     }
 
