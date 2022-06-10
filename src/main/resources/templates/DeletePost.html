@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Required meta tags -->
-    <title>View Posts Page</title>
+    <title>Delete Post Page</title>
     <link rel="stylesheet" href="style.css">
 
     <!-- Bootstrap CSS -->
@@ -34,6 +34,7 @@
     </ul>
 </nav>
 
+<!--side nav bar-->
 <div class="sidenav">
     <a th:each="blogpost : ${last5Posts}"
        th:href="@{/blogpost/{id}(id=${blogpost.id})}"
@@ -41,11 +42,17 @@
 
 </div>
 
+<!--everything else!-->
 <div class="remainder">
 
-    <p> somehow this got messed up from my initial commit so I'm changing it back. Essentially we will just have it display text here the way we do on index.html </p>
+    <p> Not sure on the layout but perhaps we have the blog post in question posted here, then the delete button below</p>
 
-
+    <button onclick="myFunction()">Delete</button>
+    <script>
+        function myFunction() {
+            alert("Are you SURE you want to delete?");
+        }
+    </script>
 
 </div>
 
