@@ -3,7 +3,7 @@ CREATE TABLE posts (
                        id int,
                        user_id int,
                        title varchar(50),
-                       body varchar (255),
+                       body varchar (1000),
                        date datetime
 );
 INSERT INTO posts (id, user_id, title, body)
