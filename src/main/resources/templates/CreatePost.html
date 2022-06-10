@@ -34,6 +34,7 @@
     </ul>
 </nav>
 
+<!--side nav bar-->
 <div class="sidenav">
     <a th:each="blogpost : ${last5Posts}"
        th:href="@{/blogpost/{id}(id=${blogpost.id})}"
@@ -41,15 +42,16 @@
 
 </div>
 
+<!--everything else!-->
 <div class="remainder">
 
-    <p> This is where they can create a new post </p>
+    <h1>Create Post Page</h1>
 
-    <input type="text" placeholder="First Name">
-    <input type="text" placeholder="Last Name">
-    <input type="text" placeholder="Username">
-    <input type="text" placeholder="Password">
-    <button type="submit"><i>Go</i></button>
+    <form>
+        <textarea rows="36" cols="100">Please submit a blog entry here!</textarea>
+        <br>
+        <input type="submit">
+    </form>
 
 </div>
 
