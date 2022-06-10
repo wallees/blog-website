@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Required meta tags -->
-    <title>Register Page</title>
+    <title>Edit Post Page</title>
     <link rel="stylesheet" href="style.css">
 
     <!-- Bootstrap CSS -->
@@ -34,6 +34,7 @@
     </ul>
 </nav>
 
+<!--side nav bar-->
 <div class="sidenav">
     <a th:each="blogpost : ${last5Posts}"
        th:href="@{/blogpost/{id}(id=${blogpost.id})}"
@@ -41,15 +42,16 @@
 
 </div>
 
+<!--everything else!-->
 <div class="remainder">
 
-    <p> This is where they can register a new user account </p>
+    <h1>Create Post Page</h1>
 
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Last Name">
-            <input type="text" placeholder="Username">
-            <input type="text" placeholder="Password">
-            <input type="submit">
+    <form>
+        <textarea rows="36" cols="100">Edit the blog entry here! I suppose we will need to populate this with the current entry data.</textarea>
+        <br>
+        <input type="submit">
+    </form>
 
 </div>
 
