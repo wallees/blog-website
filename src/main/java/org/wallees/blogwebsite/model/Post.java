@@ -25,6 +25,12 @@ public class Post {
     @Column(name = "date", nullable = false)
     private Date date = new Date();
 
+    public Post(int userId, String title, String body) {
+        this.userId = userId;
+        this.title = title;
+        this.body = body;
+    }
+
     public Long getId() {
         return id;
     }
