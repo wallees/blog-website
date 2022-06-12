@@ -26,10 +26,6 @@ public class HomeController {
         return "deletepost";
     }
 
-    @GetMapping("/register")
-    public String register(){
-        return "register";
-    }
     @GetMapping("/users")
     public String users(){
         return "users";
