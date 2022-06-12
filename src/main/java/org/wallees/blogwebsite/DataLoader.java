@@ -41,9 +41,9 @@ public class DataLoader {
     }
 
     private void LoadUsers(){
-        userRepository.save(new User("acruz", "temppass", "Amber Cruz"));
-        userRepository.save(new User("prallings", "temppass", "Patrick Rallings"));
-        userRepository.save(new User("creale", "temppass", "Colin Reale"));
-        userRepository.save(new User("janderson", "temppass", "Joseph Anderson"));
+        userRepository.save(new User("acruz", "acruz@gmail.com", "temppass", "Amber", "Cruz"));
+        userRepository.save(new User("prallings", "prallings@gmail.com",  "temppass", "Patrick", "Rallings"));
+        userRepository.save(new User("creale", "creale@gmail.com", "temppass", "Colin", "Reale"));
+        userRepository.save(new User("janderson", "janderson@gmail.com", "temppass", "Joseph", "Anderson"));
     }
 }
