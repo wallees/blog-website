@@ -19,7 +19,7 @@ public class User {
     private String email;
 
     @Column
-    private String passwordHash;
+    private String password;
 
     @Column
     private String firstName;
@@ -29,12 +29,11 @@ public class User {
 
     public User() {}
 
-    public User(String username, String email, String passwordHash, String firstName, String lastName) {
+    public User(String username, String email, String password, String firstName, String lastName) {
         this.username = username;
         this.email = email;
-        this.passwordHash = passwordHash;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
 }
