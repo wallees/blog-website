@@ -1,9 +1,14 @@
 package org.wallees.blogwebsite.web;
 
+import org.wallees.blogwebsite.constraint.FieldMatch;
+
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+@FieldMatch.List({
+        @FieldMatch(first = "password", second = "confirmPassword", message = "The passwords must be the same."),
+})
 public class UserRegistrationDto {
 
     @NotEmpty
