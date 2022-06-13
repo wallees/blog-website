@@ -1,73 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Required meta tags -->
+
     <title>Edit Post Page</title>
+
     <link rel="stylesheet" href="style.css">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body class ="body">
+<body>
+    <nav th:replace="fragments/navigation :: navigation"></nav>
 
-<!--This is the navbar-->
-<nav>
-    <ul class="NavUL">
-        <li id="Wallees"> WALLEES </li>
-        <li class="NAVli"><a href="/">Home</a></li>
-        <li class="NAVli"><a href="Login.html">Login/Logout</a></li>
-        <li class="NAVli"><a href="Viewposts.html">View Posts</a></li>
-        <li class="NAVli"><a href="CreatePost.html">Create Post</a></li>
-        <li class="NAVli"><a href="EditPost.html">Edit Post</a></li>
-        <li class="NAVli"><a href="DeletePost.html">Delete Post</a></li>
-        <li class="NAVli"><a href="Users.html">Users</a></li>
-        <li class="NAVli"><a href="Register.html">Register</a></li>
+    <div th:replace="fragments/sidenav :: sidenav (posts=${last5Posts})"></div>
 
-    </ul>
-</nav>
+    <main class="remainder">
 
-<!--side nav bar-->
-<div class="sidenav">
-    <a th:each="blogpost : ${last5Posts}"
-       th:href="@{/blogpost/{id}(id=${blogpost.id})}"
-       th:text="${'Post '+ blogpost.id}"></a>
+        <h1>Create Post Page</h1>
 
-</div>
+        <form>
+            <textarea rows="36"
+                cols="100">Edit the blog entry here! I suppose we will need to populate this with the current entry data.</textarea>
+            <br>
+            <input type="submit">
+        </form>
 
-<!--everything else!-->
-<div class="remainder">
+    </main>
 
-    <h1>Create Post Page</h1>
-
-    <form>
-        <textarea rows="36" cols="100">Edit the blog entry here! I suppose we will need to populate this with the current entry data.</textarea>
-        <br>
-        <input type="submit">
-    </form>
-
-</div>
-
-
-<!-- I have no idea if we will need this but I figured why not import it. -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>
