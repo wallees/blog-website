@@ -1,9 +1,6 @@
 package org.wallees.blogwebsite.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))

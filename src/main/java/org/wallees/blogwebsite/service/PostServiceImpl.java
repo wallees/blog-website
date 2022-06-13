@@ -11,9 +11,6 @@ import java.util.Optional;
 @Service
 public class PostServiceImpl implements PostService {
 
-    //Sets quantity of posts to be shown on home page
-    int numOfPosts = 5;
-
     @Autowired
     private PostRepository postRepository;
 
@@ -22,16 +19,10 @@ public class PostServiceImpl implements PostService {
         return this.postRepository.findAll();
     }
 
-    //Need to add Pagination functionality first
-    @Override
-    public List<Post> getLatest() {
-        return null;
-    }
-
     @Override
     public Post getPostById(Long id) {
         Optional<Post> optional = postRepository.findById(id);
-        Post post = null;
+        Post post;
         if (optional.isPresent()) {
             post = optional.get();
         } else {
