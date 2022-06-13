@@ -35,11 +35,9 @@ public class UserRegistrationController {
     public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto,
                                       BindingResult result) {
 
-        UserRegistrationService userRegistrationService = new UserRegistrationService(userDto, userService);
+        UserRegistrationService userRegistrationService = new UserRegistrationService(userDto, userService, result);
 
-        result = userRegistrationService.getResult();
-
-        if (result.hasErrors()) {
+        if (userRegistrationService.getResult().hasErrors()) {
             return "register";
         }
 

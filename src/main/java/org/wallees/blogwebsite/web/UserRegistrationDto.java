@@ -1,37 +1,13 @@
 package org.wallees.blogwebsite.web;
 
-import org.wallees.blogwebsite.constraint.FieldMatch;
-
-import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-
-@FieldMatch.List({
-        @FieldMatch(first = "password", second = "confirmPassword", message = "The passwords must be the same."),
-})
 public class UserRegistrationDto {
 
-    @NotEmpty
     private String firstName;
-
-    @NotEmpty
     private String lastName;
-
-    @NotEmpty
     private String username;
-
-    @NotEmpty
     private String password;
-
-    @NotEmpty
     private String confirmPassword;
-
-    @Email
-    @NotEmpty
     private String email;
-
-    @AssertTrue
-    private Boolean terms;
 
     public String getFirstName() {
         return firstName;
@@ -81,14 +57,6 @@ public class UserRegistrationDto {
         this.email = email;
     }
 
-    public Boolean getTerms() {
-        return terms;
-    }
-
-    public void setTerms(Boolean terms) {
-        this.terms = terms;
-    }
-
     @Override
     public String toString() {
         return "UserRegistrationDto{" +
@@ -98,7 +66,6 @@ public class UserRegistrationDto {
                 ", password='" + password + '\'' +
                 ", confirmPassword='" + confirmPassword + '\'' +
                 ", email='" + email + '\'' +
-                ", terms=" + terms +
                 '}';
     }
 }

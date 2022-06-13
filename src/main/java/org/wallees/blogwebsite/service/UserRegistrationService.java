@@ -9,9 +9,10 @@ public class UserRegistrationService {
     UserService userService;
     BindingResult result;
 
-    public UserRegistrationService(UserRegistrationDto userDto, UserService userService) {
+    public UserRegistrationService(UserRegistrationDto userDto, UserService userService, BindingResult result) {
         this.userDto = userDto;
         this.userService = userService;
+        this.result = result;
         main();
     }
 
