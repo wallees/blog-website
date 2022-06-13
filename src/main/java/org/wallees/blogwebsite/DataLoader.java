@@ -41,9 +41,10 @@ public class DataLoader {
     }
 
     private void LoadUsers(){
-        userRepository.save(new User("acruz", "temppass", "Amber Cruz"));
-        userRepository.save(new User("prallings", "temppass", "Patrick Rallings"));
-        userRepository.save(new User("creale", "temppass", "Colin Reale"));
-        userRepository.save(new User("janderson", "temppass", "Joseph Anderson"));
+        //Preloaded client-side user passwords = 'testpassword'
+        userRepository.save(new User("acruz", "acruz@gmail.com", "$2a$10$/3HV/B4dOlx3nPpDZPG.KeYxS/AcHtTync2rfeC3ZynwVeOdDLsXW", "Amber", "Cruz"));
+        userRepository.save(new User("prallings", "prallings@gmail.com",  "$2a$10$/3HV/B4dOlx3nPpDZPG.KeYxS/AcHtTync2rfeC3ZynwVeOdDLsXW", "Patrick", "Rallings"));
+        userRepository.save(new User("creale", "creale@gmail.com", "$2a$10$/3HV/B4dOlx3nPpDZPG.KeYxS/AcHtTync2rfeC3ZynwVeOdDLsXW", "Colin", "Reale"));
+        userRepository.save(new User("janderson", "janderson@gmail.com", "$2a$10$/3HV/B4dOlx3nPpDZPG.KeYxS/AcHtTync2rfeC3ZynwVeOdDLsXW", "Joseph", "Anderson"));
     }
 }
