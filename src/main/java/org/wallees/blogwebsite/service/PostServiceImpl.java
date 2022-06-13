@@ -32,7 +32,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public Post getPostById(Long id) {
         Optional<Post> optional = postRepository.findById(id);
-        Post post = null;
+        Post post;
         if (optional.isPresent()) {
             post = optional.get();
         } else {

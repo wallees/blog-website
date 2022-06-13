@@ -19,11 +19,6 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
-
     @GetMapping("/viewposts")
     public String viewPosts() {
         return "viewposts";
@@ -42,11 +37,6 @@ public class HomeController {
     @GetMapping("/deletepost")
     public String deletePost() {
         return "deletepost";
-    }
-
-    @GetMapping("/register")
-    public String register() {
-        return "register";
     }
 
     @GetMapping("/users")
