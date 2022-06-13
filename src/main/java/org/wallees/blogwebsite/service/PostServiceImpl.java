@@ -43,4 +43,15 @@ public class PostServiceImpl implements PostService {
     public void createPost(Post post) {
         this.postRepository.save(post);
     }
+
+    @Override
+    public void deletePost(Post post) {
+        this.postRepository.save(post);
+    }
+
+    @Override
+    public void editPost(Post post) {
+        this.postRepository.save(post);
+    }
+
 }

@@ -41,5 +41,15 @@ public class PostController {
         return "redirect:/";
     }
 
+    @GetMapping("/deletePost/{id}")
+    public String deletePost(@ModelAttribute("post") Post post) {
+        postService.deletePost(post);
+        return "redirect:/";
+    }
 
+    @GetMapping("/editPost/{id}")
+    public String editPost(@ModelAttribute("post") Post post) {
+        postService.editPost(post);
+        return "redirect:/";
+    }
 }

@@ -10,4 +10,6 @@ public interface PostService {
     List<Post> getLatest();
     Post getPostById(Long id);
     void createPost(Post post);
+    void deletePost(Post post);
+    void editPost(Post post);
 }
