@@ -7,6 +7,11 @@ import java.util.List;
 public interface PostService {
 
     List<Post> getAllPosts();
+
+    List<Post> getLatestPosts(int limit);
+
     Post getPostById(Long id);
+
     void createPost(Post post);
+
 }

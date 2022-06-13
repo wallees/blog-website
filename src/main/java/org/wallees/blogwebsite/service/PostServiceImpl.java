@@ -7,6 +7,7 @@ import org.wallees.blogwebsite.repository.PostRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -20,6 +21,15 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public List<Post> getLatestPosts(int limit) {
+        List<Post> allPosts = getAllPosts();
+        allPosts.sort(
+                (a, b) -> -a.getDate().compareTo(b.getDate()));
+
+        return allPosts.stream().limit(limit).collect(Collectors.toList());
+    }
+
+    @Override
     public Post getPostById(Long id) {
         Optional<Post> optional = postRepository.findById(id);
         Post post;
@@ -27,7 +37,8 @@ public class PostServiceImpl implements PostService {
             post = optional.get();
         } else {
             throw new RuntimeException("Post not found.");
-        } return post;
+        }
+        return post;
     }
 
     @Override

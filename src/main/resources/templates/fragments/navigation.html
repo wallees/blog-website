@@ -6,23 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>View Posts Page</title>
-
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <nav th:replace="fragments/navigation :: navigation"></nav>
-
-    <main class="remainder">
-
-        <p> somehow this got messed up from my initial commit so I'm changing it back. Essentially we will just have it
-            display text here the way we do on index.html </p>
-
-    </main>
-
+    <nav th:fragment="navigation">
+        <ul class="NavUL">
+            <li id="Wallees">WALLEES</li>
+            <li class="NAVli"><a href="/">Home</a></li>
+            <li class="NAVli"><a href="/login">Login/Logout</a></li>
+            <li class="NAVli"><a href="/viewposts">View Posts</a></li>
+            <li class="NAVli"><a href="/createpost">Create Post</a></li>
+            <li class="NAVli"><a href="/editpost">Edit Post</a></li>
+            <li class="NAVli"><a href="/deletepost">Delete Post</a></li>
+            <li class="NAVli"><a href="/users">Users</a></li>
+            <li class="NAVli"><a href="/" th:href="@{/register}">Register</a></li>
+        </ul>
+    </nav>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
