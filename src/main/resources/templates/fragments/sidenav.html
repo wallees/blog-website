@@ -5,39 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Wallees Home Page</title>
-
-    <link rel="stylesheet" href="style.css">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav th:replace="fragments/navigation :: navigation"></nav>
-
-    <div th:replace="fragments/sidenav :: sidenav (posts=${last5Posts})"></div>
-
-    <main class="remainder">
-
-        <h1 class="h1a">Blogpocalypse</h1>
-        <hr>
-        <img class="img1" src="Colin.jpg" alt="Photo of something?">
-        <figcaption>
-            <sub>
-                <p>(I don't know I'm just making a spot where we might put in something to separate the nav bar from the
-                    blog posts.)</p>
-                <p>and showcasing that I can make emojis and maybe we can make use of that</p>
-                <div class="sadface"></div>
-            </sub>
-        </figcaption>
-        <article th:each="blogpost : ${last3Posts}">
-            <h2 th:text="${blogpost.title}"></h2>
-            <p th:text="${blogpost.body}"></p>
-        </article>
-
-    </main>
-
+    <div th:fragment="sidenav (posts)" class="sidenav">
+        <a th:each="blogpost : ${posts}" th:href="@{/blogpost/{id}(id=${blogpost.id})}"
+            th:text="${'Post '+ blogpost.id}"></a>
+    </div>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
