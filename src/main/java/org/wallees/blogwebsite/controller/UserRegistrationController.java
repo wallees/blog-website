@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.wallees.blogwebsite.model.User;
+import org.wallees.blogwebsite.service.UserRegistrationService;
 import org.wallees.blogwebsite.service.UserService;
 import org.wallees.blogwebsite.web.UserRegistrationDto;
 
@@ -35,16 +35,9 @@ public class UserRegistrationController {
     public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto,
                                       BindingResult result) {
 
-        User existingEmail = userService.findByEmail(userDto.getEmail());
-        User existingUsername = userService.findByUsername(userDto.getUsername());
+        UserRegistrationService userRegistrationService = new UserRegistrationService(userDto, userService);
 
-        if (existingEmail != null) {
-            result.rejectValue("email",null, "There is already an account registered with that email");
-        }
-
-        if (existingUsername != null) {
-            result.rejectValue("username",null, "There is already an account registered with that username");
-        }
+        result = userRegistrationService.getResult();
 
         if (result.hasErrors()) {
             return "register";
