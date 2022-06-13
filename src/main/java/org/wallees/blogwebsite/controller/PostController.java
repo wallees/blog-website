@@ -3,8 +3,10 @@ package org.wallees.blogwebsite.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.wallees.blogwebsite.model.Post;
 import org.wallees.blogwebsite.service.PostService;
@@ -35,19 +37,19 @@ public class PostController {
         return "index";
     }
 
-    @PostMapping("/createPost")
+    @PostMapping("/blogpost")
     public String createPost(@ModelAttribute("post") Post post){
         postService.createPost(post);
         return "redirect:/";
     }
 
-    @GetMapping("/deletePost/{id}")
+    @DeleteMapping("/blogpost/{id}")
     public String deletePost(@ModelAttribute("post") Post post) {
         postService.deletePost(post);
         return "redirect:/";
     }
 
-    @GetMapping("/editPost/{id}")
+    @PatchMapping("/blogpost/{id}")
     public String editPost(@ModelAttribute("post") Post post) {
         postService.editPost(post);
         return "redirect:/";
