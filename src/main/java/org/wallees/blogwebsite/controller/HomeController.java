@@ -39,8 +39,4 @@ public class HomeController {
         return "deletepost";
     }
 
-    @GetMapping("/users")
-    public String users() {
-        return "users";
-    }
 }

@@ -10,11 +10,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.wallees.blogwebsite.model.Post;
 import org.wallees.blogwebsite.model.User;
+import org.wallees.blogwebsite.repository.PostRepository;
 import org.wallees.blogwebsite.repository.UserRepository;
 import org.wallees.blogwebsite.web.UserRegistrationDto;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -48,6 +51,11 @@ public class UserServiceImpl implements UserService {
     public Page<User> findPaginated(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
         return this.userRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return this.userRepository.findAll();
     }
 
     @Override

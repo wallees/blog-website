@@ -19,8 +19,8 @@
     <main class="remainder">
 
         <article th:each="user : ${userList}">
-            <p><a href="user.html">username</a></p>
-            <p th:text="${user.fullName}"></p>
+            <p><a th:href="@{/users/{id}(id= ${user.id})}" th:text="${user.username}">This is placeholder data</a></p>
+            <p th:text="${user.firstName + ' ' + user.lastName}"></p>
         </article>
 
         <div th:if="${totalPages > 1}">
@@ -33,6 +33,15 @@
       <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}}">[[${i}]]</a>
       <span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
             </span>
+                </div>
+
+                <div class="col-sm-1">
+                    <a th:if="${currentPage > 1}" href="/page/1">First</a>
+                    <span th:unless="${currentPage > 1}">First</span>  l
+                </div>
+                <div class="col-sm-1">
+                    <a th:if="${currentPage > 1}" th:href="@{'/page/' + ${currentPage - 1}}">Prev</a>
+                    <span th:unless="${currentPage > 1}">Prev</span>
                 </div>
                 <div class="col-sm-1">
                     <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}}">Next</a>

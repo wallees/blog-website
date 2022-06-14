@@ -45,18 +45,6 @@ public class UserRegistrationController {
         return "redirect:/register?success";
     }
 
-//    Colin adding this 6/13
-    @GetMapping("/page/{pageNo}")
-    public String findPaginated(@PathVariable (value = "pageNo") int pageNo, Model model){
-        int pageSize = 5;
-        Page<User> page = userService.findPaginated(pageNo, pageSize);
-        List<User> userList = page.getContent();
 
-        model.addAttribute("currentPage", pageNo);
-        model.addAttribute("totalPages", page.getTotalPages());
-        model.addAttribute("totalItems", page.getTotalElements());
-        model.addAttribute("userList", userList);
-        return "index";
-    }
 }
 
