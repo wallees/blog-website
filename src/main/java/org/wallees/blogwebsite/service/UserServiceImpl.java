@@ -12,6 +12,7 @@ import org.wallees.blogwebsite.repository.UserRepository;
 import org.wallees.blogwebsite.web.UserRegistrationDto;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -23,14 +24,27 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Override
+    public User getUserById(Long id) {
+        Optional<User> optional = userRepository.findById(id);
+        if (optional.isPresent()) {
+            return optional.get();
+        } else {
+            throw new RuntimeException("User not found.");
+        }
+    }
+
+    @Override
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
+    @Override
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
+    @Override
     public void save(UserRegistrationDto registration) {
         User user = new User();
         user.setFirstName(registration.getFirstName());

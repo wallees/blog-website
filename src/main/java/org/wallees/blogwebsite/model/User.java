@@ -77,6 +77,10 @@ public class User {
         this.lastName = lastName;
     }
 
+    public Set<Post> getPosts() {
+        return posts;
+    }
+
     @Override
     public String toString() {
         return "User{" +
