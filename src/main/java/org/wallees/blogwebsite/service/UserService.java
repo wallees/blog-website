@@ -15,7 +15,6 @@ public interface UserService extends UserDetailsService {
 
     void save(UserRegistrationDto registration);
 
-//    Colin adding this 6/13
     Page<User> findPaginated(int pageNo, int pageSize);
     List<User> getAllUsers();
 }

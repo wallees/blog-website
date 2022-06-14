@@ -10,9 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.wallees.blogwebsite.model.Post;
 import org.wallees.blogwebsite.model.User;
-import org.wallees.blogwebsite.repository.PostRepository;
 import org.wallees.blogwebsite.repository.UserRepository;
 import org.wallees.blogwebsite.web.UserRegistrationDto;
 
@@ -46,7 +44,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
         userRepository.save(user);
     }
-//Colin adding this 6/13
+
     @Override
     public Page<User> findPaginated(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
