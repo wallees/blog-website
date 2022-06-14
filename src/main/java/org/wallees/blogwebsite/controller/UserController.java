@@ -14,11 +14,16 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    
+    @GetMapping
+    public String viewUsers() {
+        return "users";
+    }
 
     @GetMapping("/{id}")
-    public String viewPost(@PathVariable(value = "id") Long id, Model model) {
+    public String viewUser(@PathVariable(value = "id") Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
         return "user";
     }
-    
+
 }

@@ -20,6 +20,11 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    @GetMapping
+    public String viewPosts() {
+        return "posts";
+    }
+
     @GetMapping("/{id}")
     public String viewPost(@PathVariable(value = "id") Long id, Model model) {
         model.addAttribute("post", postService.getPostById(id));
