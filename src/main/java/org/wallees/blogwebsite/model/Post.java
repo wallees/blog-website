@@ -13,8 +13,8 @@ public class Post {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
-    private int userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -25,11 +25,12 @@ public class Post {
     @Column(name = "date", nullable = false)
     private Date date = new Date();
 
-    public Post(){
+    public Post() {
 
     }
-    public Post(int userId, String title, String body) {
-        this.userId = userId;
+
+    public Post(User user, String title, String body) {
+        this.user = user;
         this.title = title;
         this.body = body;
     }
@@ -42,12 +43,12 @@ public class Post {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getTitle() {
@@ -78,7 +79,6 @@ public class Post {
     public String toString() {
         return "Post{" +
                 "id=" + id +
-                ", userId=" + userId +
                 ", title='" + title + '\'' +
                 ", body='" + body + '\'' +
                 ", date=" + date +
