@@ -1,6 +1,8 @@
 package org.wallees.blogwebsite.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -14,6 +16,8 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private Set<Post> posts = new HashSet<>();
 
     public User() {}
 
