@@ -5,18 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <title>[[${user.firstName}]] [[${user.lastName}]]</title>
+
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div th:fragment="sidenav (posts)" class="sidenav">
-        <a th:each="post : ${posts}" th:href="@{/posts/{id}(id=${post.id})}"
-            th:text="${'Post '+ post.id}"></a>
-    </div>
-    
+    <nav th:replace="fragments/navigation :: navigation"></nav>
+
+    <main class="remainder">
+
+        <h1>[[${user.firstName}]] [[${user.lastName}]]</h1>
+        <p>[[${user.username}]]</p>
+        <hr>
+        <article th:each="post : ${user.posts}">
+            <h1>[[${post.title}]]</h1>
+            <p>[[${post.body}]]</p>
+        </article>
+
+    </main>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

@@ -19,11 +19,6 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/viewposts")
-    public String viewPosts() {
-        return "viewposts";
-    }
-
     @GetMapping("/createpost")
     public String createPost() {
         return "createpost";
@@ -38,5 +33,5 @@ public class HomeController {
     public String deletePost() {
         return "deletepost";
     }
-
+    
 }

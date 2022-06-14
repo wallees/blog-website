@@ -5,18 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div th:fragment="sidenav (posts)" class="sidenav">
-        <a th:each="post : ${posts}" th:href="@{/posts/{id}(id=${post.id})}"
-            th:text="${'Post '+ post.id}"></a>
-    </div>
-    
+    <article th:fragment="postpreview (post)">
+        <h1 th:text="${post.title}">Post Title</h1>
+        <p th:text="${post.body}">Post Content</p>
+        <p>
+            Posted 
+            <span th:if="${post.user != null}">by 
+                <em th:text="${post.user.firstName + ' ' + post.user.lastName + ' (' + post.user.username + ')'}"></em> 
+            </span>
+            on <em th:text="${#dates.format(post.date, 'MMMM dd, yyyy')}">Jan 1, 1970</em>
+        </p>
+        <a th:href="@{/posts/{id}/edit(id=${post.id})}"><button>Edit</button></a>
+        <a th:href="@{/posts/{id}/delete(id=${post.id})}"><button>Delete</button></a>
+    </article>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

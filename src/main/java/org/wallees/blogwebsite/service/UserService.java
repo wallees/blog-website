@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface UserService extends UserDetailsService {
 
+    User getUserById(Long id);
+
     User findByEmail(String email);
 
     User findByUsername(String username);
@@ -16,5 +18,7 @@ public interface UserService extends UserDetailsService {
     void save(UserRegistrationDto registration);
 
     Page<User> findPaginated(int pageNo, int pageSize);
+
     List<User> getAllUsers();
+
 }
