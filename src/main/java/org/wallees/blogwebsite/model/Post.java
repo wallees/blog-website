@@ -16,10 +16,10 @@ public class Post {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
-    @Column(name = "title", nullable = false)
+    @Column(name = "title", nullable = false, length = 75)
     private String title;
 
-    @Column(name = "body", nullable = false)
+    @Column(name = "body", nullable = false, length = 1500)
     private String body;
 
     @Column(name = "date", nullable = false)
