@@ -18,10 +18,11 @@
 
     <main class="remainder">
 
-        <h1>Create Post Page</h1>
+        <h1>Create Post</h1>
 
-        <form>
-            <textarea rows="36" cols="100">Please submit a blog entry here!</textarea>
+        <form th:object="${post}" th:action="@{/posts}" method="POST" action="#" >
+            <input type="text" th:field="*{title}" placeholder="Title">
+            <textarea rows="36" cols="100" th:field="*{body}"></textarea>
             <br>
             <input type="submit">
         </form>

@@ -30,10 +30,10 @@
                 <div class="sadface"></div>
             </sub>
         </figcaption>
-        <article th:each="blogpost : ${last3Posts}">
-            <h2 th:text="${blogpost.title}"></h2>
-            <p th:text="${blogpost.body}"></p>
-        </article>
+        <th:block th:each="post : ${last3Posts}">
+            <article th:replace="fragments/postpreview :: postpreview (post=${post})">
+            </article>
+        </th:block>
 
     </main>
 

@@ -18,9 +18,8 @@
 
     <main class="remainder">
 
-        <h1>[[${post.title}]]</h1>
-        <p>[[${post.body}]]</p>
-        <p>Posted by <em>[[${post.user.username}]]</em> on <em>[[${post.date}]]</em></p>
+        <article th:replace="fragments/postpreview :: postpreview (post=${post})">
+        </article>
 
     </main>
 
