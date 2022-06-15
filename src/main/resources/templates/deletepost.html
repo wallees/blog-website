@@ -35,6 +35,9 @@
             fetch(url, {
                 method: "DELETE",
                 credentials: "include"
+            }).then(() => {
+                const redirect = /*[[@{/}]]*/ "/";
+                window.location.href = redirect;
             });
         }
         /*]]>*/

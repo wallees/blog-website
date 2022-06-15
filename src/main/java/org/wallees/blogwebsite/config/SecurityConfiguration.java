@@ -20,11 +20,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                // TODO: Support CSRF protection properly in deletepost form.
+                .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(
                         "/",
                         "/register**",
-                        "/posts",
+                        "/posts**",
 
                         "/js/**",
                         "/css/**",
