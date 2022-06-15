@@ -1,6 +1,9 @@
 package org.wallees.blogwebsite.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.wallees.blogwebsite.model.Post;
 import org.wallees.blogwebsite.repository.PostRepository;
@@ -62,6 +65,12 @@ public class PostServiceImpl implements PostService {
         originalPost.setTitle(editedPost.getTitle());
         originalPost.setBody(editedPost.getBody());
         this.postRepository.save(originalPost);
+    }
+
+    @Override
+    public Page<Post> findPaginated(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return this.postRepository.findAll(pageable);
     }
 
 }

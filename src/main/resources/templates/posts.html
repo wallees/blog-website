@@ -18,9 +18,42 @@
 
     <main class="remainder">
 
-        <p> somehow this got messed up from my initial commit so I'm changing it back. Essentially we will just have it
-            display text here the way we do on index.html </p>
+        <th:block th:each="post : ${postList}">
+            <article th:replace="fragments/postpreview :: postpreview (post=${post})">
+            </article>
+        </th:block>
 
+        <div th:if="${totalPages > 1}">
+            <div class="row col-sm-10">
+                <div class="col-sm-2">
+                    Total Rows: [[${totalItems}]]
+                </div>
+                <div class="col-sm-1">
+                    <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+                        <a th:if="${currentPage != i}" th:href="@{/posts(page=${i})}">[[${i}]]</a>
+                        <span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
+                    </span>
+                </div>
+
+                <div class="col-sm-1">
+                    <a th:if="${currentPage > 1}" href="/posts">First</a>
+                    <span th:unless="${currentPage > 1}">First</span> l
+                </div>
+                <div class="col-sm-1">
+                    <a th:if="${currentPage > 1}" th:href="@{/posts(page=${currentPage - 1})}">Prev</a>
+                    <span th:unless="${currentPage > 1}">Prev</span>
+                </div>
+                <div class="col-sm-1">
+                    <a th:if="${currentPage < totalPages}" th:href="@{/posts(page=${currentPage + 1})}">Next</a>
+                    <span th:unless="${currentPage < totalPages}">Next</span>
+                </div>
+
+                <div class="col-sm-1">
+                    <a th:if="${currentPage < totalPages}" th:href="@{/posts(page=${totalPages})}">Last</a>
+                    <span th:unless="${currentPage < totalPages}">Last</span>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -1,8 +1,10 @@
 package org.wallees.blogwebsite.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.wallees.blogwebsite.model.Post;
 import org.wallees.blogwebsite.model.User;
 import org.wallees.blogwebsite.service.PostService;
@@ -29,7 +32,15 @@ public class PostController {
     private UserService userService;
 
     @GetMapping
-    public String viewPosts() {
+    public String viewPosts(@RequestParam(value = "page", defaultValue = "1") int pageNo, Model model) {
+        int pageSize = 10;
+        Page<Post> page = postService.findPaginated(pageNo, pageSize);
+        List<Post> postList = page.getContent();
+
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+        model.addAttribute("postList", postList);
         return "posts";
     }
 
