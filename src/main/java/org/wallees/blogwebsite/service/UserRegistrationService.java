@@ -3,6 +3,9 @@ package org.wallees.blogwebsite.service;
 import org.springframework.validation.BindingResult;
 import org.wallees.blogwebsite.web.UserRegistrationDto;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class UserRegistrationService {
 
     UserRegistrationDto userDto;
@@ -23,6 +26,7 @@ public class UserRegistrationService {
         fieldFilledCheck(this.userDto.getEmail(), "email");
         fieldFilledCheck(this.userDto.getPassword(), "password");
         fieldFilledCheck(this.userDto.getConfirmPassword(), "confirmPassword");
+        emailRegexCheck();
         existingEmailCheck();
         existingUsernameCheck();
         samePasswordCheck();
@@ -37,6 +41,15 @@ public class UserRegistrationService {
     private void existingEmailCheck(){
         if (userService.findByEmail(userDto.getEmail()) != null) {
             this.result.rejectValue("email",null, "There is already an account registered with that email");
+        }
+    }
+
+    private void emailRegexCheck(){
+        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(userDto.getEmail());
+        if (!matcher.matches()){
+            this.result.rejectValue("email",null, "This is not a valid email.");
         }
     }
 
