@@ -1,6 +1,9 @@
 package org.wallees.blogwebsite.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,6 +15,7 @@ import org.wallees.blogwebsite.repository.UserRepository;
 import org.wallees.blogwebsite.web.UserRegistrationDto;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -53,6 +57,17 @@ public class UserServiceImpl implements UserService {
         user.setEmail(registration.getEmail());
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
         userRepository.save(user);
+    }
+
+    @Override
+    public Page<User> findPaginated(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return this.userRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return this.userRepository.findAll();
     }
 
     @Override
