@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +21,9 @@ import org.wallees.blogwebsite.model.Post;
 import org.wallees.blogwebsite.model.User;
 import org.wallees.blogwebsite.service.PostService;
 import org.wallees.blogwebsite.service.UserService;
+import org.wallees.blogwebsite.validation.PostValidation;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/posts")
@@ -51,7 +55,7 @@ public class PostController {
     }
 
     @PostMapping
-    public String createPost(@ModelAttribute("post") Post post) {
+    public String createPost(@ModelAttribute("post") @Valid Post post, BindingResult result) {
         post.setDate(new Date());
 
         // TODO: Do this in a less terrible way.
@@ -64,6 +68,10 @@ public class PostController {
             }
         }
 
+        PostValidation postValidation = new PostValidation(post, result);
+        if (postValidation.getResult().hasErrors()) {
+            return "createpost";
+        }
         postService.createPost(post);
         return "redirect:/posts/" + post.getId();
     }
