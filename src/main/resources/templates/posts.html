@@ -18,11 +18,10 @@
 
     <main class="remainder">
 
-        <article th:each="post : ${postList}">
-            <h1 th:text="${post.title}"></h1>
-            <i>posted by </i><i th:text="${post.user.username}"></i> <i> at </i> <i th:text="${post.date}"></i>
-            <p th:text="${post.body}"></p>
-        </article>
+        <th:block th:each="post : ${postList}">
+            <article th:replace="fragments/postpreview :: postpreview (post=${post})">
+            </article>
+        </th:block>
 
         <div th:if="${totalPages > 1}">
             <div class="row col-sm-10">

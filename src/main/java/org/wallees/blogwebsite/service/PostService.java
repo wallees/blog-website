@@ -15,10 +15,12 @@ public interface PostService {
 
     void createPost(Post post);
 
+    void deletePost(Long id);
+
     void deletePost(Post post);
 
-    void editPost(Post post);
+    void editPost(Long id, Post editedPost);
 
     Page<Post> findPaginated(int pageNo, int pageSize);
-    
+
 }
