@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.wallees.blogwebsite.service.UserRegistrationService;
+import org.wallees.blogwebsite.validation.UserRegistrationValidation;
 import org.wallees.blogwebsite.service.UserService;
 import org.wallees.blogwebsite.web.UserRegistrationDto;
 
@@ -34,9 +34,9 @@ public class UserRegistrationController {
     public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto,
                                       BindingResult result) {
 
-        UserRegistrationService userRegistrationService = new UserRegistrationService(userDto, userService, result);
+        UserRegistrationValidation userRegistrationValidation = new UserRegistrationValidation(userDto, userService, result);
 
-        if (userRegistrationService.getResult().hasErrors()) {
+        if (userRegistrationValidation.getResult().hasErrors()) {
             return "register";
         }
 

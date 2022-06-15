@@ -1,18 +1,19 @@
-package org.wallees.blogwebsite.service;
+package org.wallees.blogwebsite.validation;
 
 import org.springframework.validation.BindingResult;
+import org.wallees.blogwebsite.service.UserService;
 import org.wallees.blogwebsite.web.UserRegistrationDto;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserRegistrationService {
+public class UserRegistrationValidation {
 
     UserRegistrationDto userDto;
     UserService userService;
     BindingResult result;
 
-    public UserRegistrationService(UserRegistrationDto userDto, UserService userService, BindingResult result) {
+    public UserRegistrationValidation(UserRegistrationDto userDto, UserService userService, BindingResult result) {
         this.userDto = userDto;
         this.userService = userService;
         this.result = result;
