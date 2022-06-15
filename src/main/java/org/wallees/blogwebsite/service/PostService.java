@@ -1,5 +1,6 @@
 package org.wallees.blogwebsite.service;
 
+import org.springframework.data.domain.Page;
 import org.wallees.blogwebsite.model.Post;
 
 import java.util.List;
@@ -17,5 +18,7 @@ public interface PostService {
     void deletePost(Post post);
 
     void editPost(Post post);
+
+    Page<Post> findPaginated(int pageNo, int pageSize);
     
 }
