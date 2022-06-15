@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.wallees.blogwebsite.model.Post;
-import org.wallees.blogwebsite.model.User;
 import org.wallees.blogwebsite.service.PostService;
 
 import java.util.List;

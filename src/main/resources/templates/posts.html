@@ -19,7 +19,6 @@
     <main class="remainder">
 
         <article th:each="post : ${postList}">
-<!--            <p><a th:href="@{/posts/{id}(id= ${post.id})}" th:text="${post.user}">This is placeholder data</a></p>-->
             <h1 th:text="${post.title}"></h1>
             <i>posted by </i><i th:text="${post.user.username}"></i> <i> at </i> <i th:text="${post.date}"></i>
             <p th:text="${post.body}"></p>

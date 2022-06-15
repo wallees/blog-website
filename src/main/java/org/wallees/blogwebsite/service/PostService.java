@@ -2,7 +2,6 @@ package org.wallees.blogwebsite.service;
 
 import org.springframework.data.domain.Page;
 import org.wallees.blogwebsite.model.Post;
-import org.wallees.blogwebsite.model.User;
 
 import java.util.List;
 
