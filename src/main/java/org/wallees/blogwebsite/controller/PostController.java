@@ -68,8 +68,8 @@ public class PostController {
             }
         }
 
-        PostValidation postValidation = new PostValidation(post, result);
-        if (postValidation.getResult().hasErrors()) {
+        PostValidation createPostValidation = new PostValidation(post, result);
+        if (createPostValidation.getResult().hasErrors()) {
             return "createpost";
         }
         postService.createPost(post);
@@ -91,6 +91,7 @@ public class PostController {
     // HTML forms only support GET and POST; could submit PATCH via JS instead, but this will do for now
     @PostMapping("/{id}")
     public String editPost(@PathVariable(value = "id") Long id, @ModelAttribute("post") Post post) {
+
         postService.editPost(id, post);
         return "redirect:/posts/" + post.getId();
     }
