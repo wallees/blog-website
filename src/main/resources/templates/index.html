@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Wallees Home Page</title>
+    <title>CFH: Blog Home</title>
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -16,27 +16,22 @@
 <body>
     <nav th:replace="fragments/navigation :: navigation"></nav>
 
-    <div th:replace="fragments/sidenav :: sidenav (posts=${last5Posts})"></div>
+    <main class="row">
 
-    <main class="remainder">
-        <div th:if="${param.login}">
-            <div class="alert alert-info">You have successfully logged in.</div>
+        <div th:replace="fragments/sidenav :: sidenav (posts=${last5Posts})"></div>
+
+        <div class="remainder col">
+            <div th:if="${param.login}">
+                <div class="alert alert-info">You have successfully logged in.</div>
+            </div>
+            <h1 class="h1a">Blog</h1>
+            <hr>
+            <th:block th:each="post : ${last3Posts}">
+                <article th:replace="fragments/postpreview :: postpreview (post=${post})">
+                </article>
+            </th:block>
+
         </div>
-        <h1 class="h1a">Blog</h1>
-        <hr>
-        <figcaption>
-            <sub>
-                <p>(I don't know I'm just making a spot where we might put in something to separate the nav bar from the
-                    blog posts.)</p>
-                <p>and showcasing that I can make emojis and maybe we can make use of that</p>
-                <div class="sadface"></div>
-            </sub>
-        </figcaption>
-        <th:block th:each="post : ${last3Posts}">
-            <article th:replace="fragments/postpreview :: postpreview (post=${post})">
-            </article>
-        </th:block>
-
     </main>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
