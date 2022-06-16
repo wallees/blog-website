@@ -42,6 +42,15 @@ body {
     margin: 0 0 0 12px;
 }
 
+/* Posts */
+
+#postContainer {
+    border: 3px solid #3A1026;
+    border-radius: 15px;
+    background-color: #fff;
+    margin: 15px 0 15px 0;
+}
+
 /*!* Buttons *!*/
 
 button {
@@ -91,6 +100,32 @@ button {
     color: #fff;
 }
 
+#editBtn {
+    border-radius: 10px;
+    background: transparent;
+    border-color: #FFAB0E;
+    color: #D81A5E;
+}
+
+#editBtn:hover {
+    background: #3A1026;
+    border-color: #3A1026;
+    color: #fff;
+}
+
+#deleteBtn {
+    border-radius: 10px;
+    background: red;
+    border-color: darkred;
+    color: #fff;
+    margin: 5px 0 5px 0;
+}
+
+#deleteBtn:hover {
+    background: #3A1026;
+    color: #fff;
+}
+
 /* Side Nav */
 
 #sidenav {
@@ -102,10 +137,6 @@ button {
     margin-right: 0;
 }
 
-/* Posts */
-
-
-
 /* Misc. */
 
 hr {
@@ -116,70 +147,3 @@ hr {
     color: inherit;
     text-decoration: inherit;
 }
-
-/*div {*/
-/*    padding: 5px;*/
-/*}*/
-
-/*!* Navigation *!*/
-
-/*nav {*/
-/*    !* Same as the width of the sidenav *!*/
-/*    margin-left: 160px;*/
-/*    !* Increased text to enable scrolling *!*/
-/*    font-size: 28px;*/
-/*    padding: 10px;*/
-/*    height: 10%;*/
-/*    width: 100%;*/
-
-/*    justify-content: space-between;*/
-/*    color: #f9fcf0;*/
-/*    background-color: #3A1027;*/
-
-/*    border: solid white;*/
-/*}*/
-
-/*.NavUL {*/
-/*    text-decoration: none;*/
-/*    list-style-type: none;*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    width: 100%;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
-
-/*#Wallees {*/
-/*    color: rgb(244, 122, 55);*/
-/*}*/
-
-/*.NAVli a {*/
-/*    display: inline;*/
-/*    width: 100%;*/
-/*    background-color: #3A1027;*/
-/*    text-decoration: none;*/
-/*    color: #D91A5F;*/
-/*}*/
-
-/*.NAVli a:hover {*/
-/*    color: #FEBF10;*/
-/*}*/
-
-
-/*!* Content *!*/
-
-/*.remainder {*/
-/*    !* Same as the width of the sidenav *!*/
-/*    margin-left: 160px;*/
-/*    !* Increased text to enable scrolling *!*/
-/*    font-size: 28px;*/
-/*    padding: 10px;*/
-/*}*/
-
-/*.h1a {*/
-/*    background-color: #FEBF10;*/
-/*}*/
-
-/*.sadface::after {*/
-/*    content: "\01F625";*/
-/*}*/
