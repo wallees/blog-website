@@ -12,8 +12,8 @@
 </head>
 
 <body>
-    <article th:fragment="postpreview (post)">
-        <h1 th:text="${post.title}">Post Title</h1>
+    <article th:fragment="postpreview (post, currentUser)">
+        <a th:href="@{/posts/{id}(id=${post.id})}"><h1 th:text="${post.title}">Post Title</h1></a>
         <p th:text="${post.body}">Post Content</p>
         <p>
             Posted 
@@ -22,8 +22,10 @@
             </span>
             on <em th:text="${#dates.format(post.date, 'MMMM dd, yyyy')}">Jan 1, 1970</em>
         </p>
-        <a th:href="@{/posts/{id}/edit(id=${post.id})}"><button>Edit</button></a>
-        <a th:href="@{/posts/{id}/delete(id=${post.id})}"><button>Delete</button></a>
+        <th:block th:if="${post.user != null && currentUser != null && post.user.id == currentUser.id}">
+            <a th:href="@{/posts/{id}/edit(id=${post.id})}"><button>Edit</button></a>
+            <a th:href="@{/posts/{id}/delete(id=${post.id})}"><button>Delete</button></a>
+        </th:block>
     </article>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -23,7 +23,7 @@
         <button onclick="yesClicked()">Yes</button>
         <a th:href="@{/posts/{id}(id=${post.id})}"><button>No</button></a>
 
-        <article th:replace="fragments/postpreview :: postpreview (post=${post})">
+        <article th:replace="fragments/postpreview :: postpreview (post=${post}, currentUser=${currentUser})">
         </article>
 
     </main>
