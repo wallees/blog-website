@@ -10,59 +10,59 @@
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
-    <nav th:replace="fragments/navigation :: navigation"></nav>
+<body id="page-container">
+<nav th:replace="fragments/navigation :: navigation"></nav>
 
-    <main class="remainder">
+<main class="remainder">
 
-        <th:block th:each="post : ${postList}">
-            <article th:replace="fragments/postpreview :: postpreview (post=${post}, currentUser=${currentUser})">
-            </article>
-        </th:block>
+    <th:block th:each="post : ${postList}">
+        <article th:replace="fragments/postpreview :: postpreview (post=${post}, currentUser=${currentUser})">
+        </article>
+    </th:block>
 
-        <div th:if="${totalPages > 1}">
-            <div class="row col-sm-10">
-                <div class="col-sm-2">
-                    Total Rows: [[${totalItems}]]
-                </div>
-                <div class="col-sm-1">
+    <div th:if="${totalPages > 1}">
+        <div class="row col-sm-10">
+            <div class="col-sm-2">
+                Total Rows: [[${totalItems}]]
+            </div>
+            <div class="col-sm-1">
                     <span th:each="i: ${#numbers.sequence(1, totalPages)}">
                         <a th:if="${currentPage != i}" th:href="@{/posts(page=${i})}">[[${i}]]</a>
                         <span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
                     </span>
-                </div>
+            </div>
 
-                <div class="col-sm-1">
-                    <a th:if="${currentPage > 1}" href="/posts">First</a>
-                    <span th:unless="${currentPage > 1}">First</span> l
-                </div>
-                <div class="col-sm-1">
-                    <a th:if="${currentPage > 1}" th:href="@{/posts(page=${currentPage - 1})}">Prev</a>
-                    <span th:unless="${currentPage > 1}">Prev</span>
-                </div>
-                <div class="col-sm-1">
-                    <a th:if="${currentPage < totalPages}" th:href="@{/posts(page=${currentPage + 1})}">Next</a>
-                    <span th:unless="${currentPage < totalPages}">Next</span>
-                </div>
+            <div class="col-sm-1">
+                <a th:if="${currentPage > 1}" href="/posts">First</a>
+                <span th:unless="${currentPage > 1}">First</span> l
+            </div>
+            <div class="col-sm-1">
+                <a th:if="${currentPage > 1}" th:href="@{/posts(page=${currentPage - 1})}">Prev</a>
+                <span th:unless="${currentPage > 1}">Prev</span>
+            </div>
+            <div class="col-sm-1">
+                <a th:if="${currentPage < totalPages}" th:href="@{/posts(page=${currentPage + 1})}">Next</a>
+                <span th:unless="${currentPage < totalPages}">Next</span>
+            </div>
 
-                <div class="col-sm-1">
-                    <a th:if="${currentPage < totalPages}" th:href="@{/posts(page=${totalPages})}">Last</a>
-                    <span th:unless="${currentPage < totalPages}">Last</span>
-                </div>
+            <div class="col-sm-1">
+                <a th:if="${currentPage < totalPages}" th:href="@{/posts(page=${totalPages})}">Last</a>
+                <span th:unless="${currentPage < totalPages}">Last</span>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>

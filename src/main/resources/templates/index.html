@@ -13,7 +13,8 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
+<body id="page-container">
+
 <nav th:replace="fragments/navigation :: navigation"></nav>
 
 <main class="row">
@@ -21,18 +22,16 @@
     <div th:replace="fragments/sidenav :: sidenav (posts=${last5Posts})"></div>
 
     <div class="remainder col">
-        <div th:if="${param.login}">
-            <div class="alert alert-info">You have successfully logged in.</div>
+        <div class="row justify-content-center" th:if="${param.login}">
+            <div class="col-6 text-center alert alert-success">You have successfully logged in.</div>
         </div>
 
         <th:block th:each="post : ${last3Posts}">
             <article th:replace="fragments/postpreview :: postpreview (post=${post}, currentUser=${currentUser})">
             </article>
         </th:block>
-
     </div>
 </main>
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

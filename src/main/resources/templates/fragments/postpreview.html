@@ -16,7 +16,8 @@
     <div class="row justify-content-center">
         <div class="col-10" id="postContainer">
             <div class="row justify-content-end pt-2 pb-2">
-                <div class="col-3" th:if="${post.user != null && currentUser != null && post.user.id == currentUser.id}">
+                <div class="col-3"
+                     th:if="${post.user != null && currentUser != null && post.user.id == currentUser.id}">
                     <a th:href="@{/posts/{id}/edit(id=${post.id})}">
                         <button id="editBtn">Edit</button>
                     </a>
@@ -29,9 +30,9 @@
                 <p>
                     Posted
                     <span th:if="${post.user != null}">by
-                <em  th:if="${currentUser == null || post.user != null && post.user.id != currentUser.id}"
-                     th:text="${post.user.firstName + ' ' + post.user.lastName + ' (' + post.user.username + ')'}"></em>
-                <em  th:if="${post.user != null && currentUser != null && post.user.id == currentUser.id}"><b>you</b></em>
+                <em th:if="${currentUser == null || post.user != null && post.user.id != currentUser.id}"
+                    th:text="${post.user.firstName + ' ' + post.user.lastName + ' (' + post.user.username + ')'}"></em>
+                <em th:if="${post.user != null && currentUser != null && post.user.id == currentUser.id}"><b>you</b></em>
                     </span>
                     on <em th:text="${#dates.format(post.date, 'MMMM dd, yyyy')}">Jan 1, 1970</em>
                 </p>
