@@ -8,7 +8,7 @@ import org.wallees.blogwebsite.repository.PostRepository;
 import org.wallees.blogwebsite.repository.UserRepository;
 import org.wallees.blogwebsite.service.UserService;
 
-@Component
+//@Component
 public class DataLoader {
 
     private PostRepository postRepository;
