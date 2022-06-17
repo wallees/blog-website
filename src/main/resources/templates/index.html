@@ -21,7 +21,7 @@
 
     <div th:replace="fragments/sidenav :: sidenav (posts=${last5Posts})"></div>
 
-    <div class="remainder col">
+    <div class="remainder col" id="homeBackground">
         <div class="row justify-content-center" th:if="${param.login}">
             <div class="col-6 text-center alert alert-success">You have successfully logged in.</div>
         </div>

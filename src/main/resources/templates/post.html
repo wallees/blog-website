@@ -16,7 +16,7 @@
 <body id="page-container">
 <nav th:replace="fragments/navigation :: navigation"></nav>
 
-<main class="remainder">
+<main class="remainder" id="postBackground">
 
     <article th:replace="fragments/postpreview :: postpreview (post=${post}, currentUser=${currentUser})">
     </article>

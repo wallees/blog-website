@@ -18,10 +18,29 @@
 
 <main class="remainder">
 
-    <article th:each="user : ${userList}">
-        <p><a th:href="@{/users/{id}(id= ${user.id})}" th:text="${user.username}">This is placeholder data</a></p>
-        <p th:text="${user.firstName + ' ' + user.lastName}"></p>
-    </article>
+<div class="col-12 text-center">
+    <div class="row justify-content-center"><h2>List of Members</h2></div>
+    <div class="row justify-content-center">
+        <div class="col-6 text-center">
+            <table class="table" id="userTable">
+                <tr>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Full Name
+                    </th>
+                </tr>
+                <tr th:each="user, iStat : ${userList}">
+                    <td><a th:href="@{/users/{id}(id= ${user.id})}" th:text="${user.username}">This is placeholder
+                        data</a>
+                    </td>
+                    <td th:text="${user.firstName + ' ' + user.lastName}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 
     <div th:if="${totalPages > 1}">
         <div class="row col-sm-10">

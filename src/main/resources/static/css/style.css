@@ -5,6 +5,11 @@ html {
     height: 100%;
 }
 
+.content-body {
+    height: 100%;
+    background-image: url("/images/Hexagon.svg")
+}
+
 main {
     height: 100%;
 }
@@ -92,6 +97,33 @@ button {
     color: #fff;
 }
 
+#logBtn {
+    border-radius: 10px;
+    background: #D81A5E;
+    border-color: #fff;
+    color: #fff;
+}
+
+#logBtn:hover {
+    background: #3A1026;
+    border-color: #3A1026;
+    color: #fff;
+}
+
+#regBtn {
+    width: 30%;
+    border-radius: 10px;
+    background: #D81A5E;
+    border-color: #fff;
+    color: #fff;
+}
+
+#regBtn:hover {
+    background: #3A1026;
+    border-color: #3A1026;
+    color: #fff;
+}
+
 #registerBtn {
     border-radius: 10px;
     background: transparent;
@@ -150,7 +182,7 @@ button {
 
 #deleteBtn {
     border-radius: 10px;
-    background: red;
+    background: #3A1026;
     border-color: darkred;
     color: #fff;
     margin-bottom: 5px;
@@ -198,11 +230,86 @@ button {
     background: linear-gradient(90deg, rgba(219,21,89,1) 35%, rgba(155,29,61,1) 100%);
     margin-left: 0;
     margin-right: 0;
+    text-overflow: ellipsis;
+}
+
+/*User*/
+
+#userTable {
+    margin-top: 25px;
+    border: 1px solid #3A1026;
+    border-radius: 10px;
+    border-collapse: collapse;
+    background-color: #fff;
+    font-size: 21px;
+}
+
+table {
+    border: 1px solid #3A1026;
+    border-radius: 10px;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 5px;
+}
+
+/*Backgrounds*/
+
+#loginBackground, #registrationBackground {
+    margin-top: 0;
+    padding-top: 50px;
+    background-image: url("/images/Hexagon.svg");
+    background-size: cover;
+}
+
+#viewPostsBackground {
+    margin-top: 0;
+    padding-top: 35px;
+    background-image: url("/images/IconGrid.svg");
+    background-size: cover;
+}
+
+#homeBackground {
+    margin-top: 0;
+    padding-top: 35px;
+    background-image: url("/images/CircuitBoard.svg");
+    background-size: cover;
+}
+
+#postBackground {
+    margin-top: 0;
+    padding-top: 35px;
+    background-image: url("/images/AnimatedShape.svg");
+}
+
+.postBackground {
+    margin-top: 0;
+    padding-top: 35px;
+    background-image: url("/images/MassCircles.svg");
+    background-size: cover;
 }
 
 /* Misc. */
 
+#logContainer {
+    margin-top: 35px;
+    border: 3px solid rgba(155,29,61,1);
+    border-radius: 25px;
+    background-color: #fff;
+    padding: 23px;
+}
+
+#registerContainer {
+    margin-top: 35px;
+    border: 3px solid rgba(155,29,61,1);
+    border-radius: 25px;
+    background-color: #fff;
+    padding: 23px;
+}
+
 hr {
+    margin: 0;
     background-color: #fff;
 }
 
