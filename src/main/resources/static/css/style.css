@@ -118,7 +118,8 @@ button {
     background: red;
     border-color: darkred;
     color: #fff;
-    margin: 5px 0 5px 0;
+    margin-bottom: 5px;
+    width: 38%;
 }
 
 #deleteBtn:hover {
