@@ -1,91 +1,149 @@
-div {
-    padding: 5px;
+html {
+    height: 100%;
 }
 
-/* Navigation */
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
 
-nav {
-    /* Same as the width of the sidenav */
-    margin-left: 160px;
-    /* Increased text to enable scrolling */
-    font-size: 28px;
-    padding: 10px;
-    height: 10%;
+/*Body of Content*/
+.remainder {
+    padding-top: 25px;
+    padding-bottom: 4.5rem;
+    /*background-image: url("/images/Hexagon.svg");*/
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/*!* Nav (top) *!*/
+#navContainer {
     width: 100%;
-
-    justify-content: space-between;
-    color: #f9fcf0;
-    background-color: #3A1027;
-
-    border: solid white;
+    padding: 8px 0 10px 0;
+    border-bottom: 3px solid #3A1026;
+    box-shadow: 3px 5px 15px #3A1026;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-.NavUL {
-    text-decoration: none;
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+#navList {
+    font-size: 21px;
+    font-weight: 600;
+    list-style: none;
+    color: #3A1026;
 }
 
-#Wallees {
-    color: rgb(244, 122, 55);
+#CFHLogo {
+    margin: 0 0 0 12px;
 }
 
-.NAVli a {
-    display: inline;
-    width: 100%;
-    background-color: #3A1027;
-    text-decoration: none;
-    color: #D91A5F;
+/* Posts */
+
+#postContainer {
+    border: 3px solid #3A1026;
+    border-radius: 15px;
+    background-color: #fff;
+    margin: 15px 0 15px 0;
 }
 
-.NAVli a:hover {
-    color: #FEBF10;
+/*!* Buttons *!*/
+
+button {
+    padding: 5px 10px 5px 10px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid #fff;;
+    text-align: center;
+    transition: all .15s ease;
+}
+
+#loginBtn {
+    border-radius: 10px;
+    background: #D81A5E;
+    border-color: #fff;
+    color: #fff;
+}
+
+#loginBtn:hover {
+    background: #3A1026;
+    border-color: #3A1026;
+    color: #fff;
+}
+
+#registerBtn {
+    border-radius: 10px;
+    background: transparent;
+    border-color: #D81A5E;
+    color: #D81A5E;
+}
+
+#registerBtn:hover {
+    background: #3A1026;
+    border-color: #3A1026;
+    color: #fff;
+}
+
+#logoutBtn {
+    border-radius: 10px;
+    background: darkred;
+    border-color: black;
+    color: #fff;
+}
+
+#logoutBtn:hover {
+    background: #3A1026;
+    color: #fff;
+}
+
+#editBtn {
+    border-radius: 10px;
+    background: transparent;
+    border-color: #FFAB0E;
+    color: #D81A5E;
+}
+
+#editBtn:hover {
+    background: #3A1026;
+    border-color: #3A1026;
+    color: #fff;
+}
+
+#deleteBtn {
+    border-radius: 10px;
+    background: red;
+    border-color: darkred;
+    color: #fff;
+    margin: 5px 0 5px 0;
+}
+
+#deleteBtn:hover {
+    background: #3A1026;
+    color: #fff;
 }
 
 /* Side Nav */
 
-.sidenav {
-    height: 100%;
-    width: 170px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #3A1027;
-    overflow-x: hidden;
-    padding-top: 20px;
+#sidenav {
+    color: #fff;
+    font-size: 16px;
+    background: rgb(219,21,89);
+    background: linear-gradient(90deg, rgba(219,21,89,1) 35%, rgba(155,29,61,1) 100%);
+    margin-left: 0;
+    margin-right: 0;
 }
 
-.sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #D91A5F;
-    display: block;
+/* Misc. */
+
+hr {
+    background-color: #fff;
 }
 
-.sidenav a:hover {
-    color: #FEBF10;
-}
-
-/* Content */
-
-.remainder {
-    /* Same as the width of the sidenav */
-    margin-left: 160px;
-    /* Increased text to enable scrolling */
-    font-size: 28px;
-    padding: 10px;
-}
-
-.h1a {
-    background-color: #FEBF10;
-}
-
-.sadface::after {
-    content: "\01F625";
+.link-unstyled, .link-unstyled:link, .link-unstyled:hover {
+    color: inherit;
+    text-decoration: inherit;
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>[[${post.title}]]</title>
+    <title>CFH: [[${post.title}]]</title>
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -20,7 +20,6 @@
 
         <article th:replace="fragments/postpreview :: postpreview (post=${post}, currentUser=${currentUser})">
         </article>
-
     </main>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
