@@ -2,12 +2,14 @@ package org.wallees.blogwebsite.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.server.ResponseStatusException;
 import org.wallees.blogwebsite.model.User;
 import org.wallees.blogwebsite.service.UserService;
 
@@ -35,8 +37,17 @@ public class UserController {
 
     @GetMapping("/{id}")
     public String viewUser(@PathVariable(value = "id") Long id, Model model) {
-        model.addAttribute("user", userService.getUserById(id));
+        model.addAttribute("user", getUserById(id));
+        model.addAttribute("currentUser", userService.getCurrentUser());
         return "user";
+    }
+
+    private User getUserById(Long id) {
+        try {
+            return userService.getUserById(id);
+        } catch (RuntimeException ex) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
+        }
     }
 
 }

@@ -19,7 +19,7 @@
     <main class="remainder">
 
         <th:block th:each="post : ${postList}">
-            <article th:replace="fragments/postpreview :: postpreview (post=${post})">
+            <article th:replace="fragments/postpreview :: postpreview (post=${post}, currentUser=${currentUser})">
             </article>
         </th:block>
 

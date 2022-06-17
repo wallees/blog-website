@@ -22,7 +22,7 @@
         <p>[[${user.username}]]</p>
         <hr>
         <th:block th:each="post : ${user.posts}">
-            <article th:replace="fragments/postpreview :: postpreview (post=${post})">
+            <article th:replace="fragments/postpreview :: postpreview (post=${post}, currentUser=${currentUser})">
             </article>
         </th:block>
     </main>

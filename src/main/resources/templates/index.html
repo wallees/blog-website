@@ -26,7 +26,7 @@
         </div>
 
         <th:block th:each="post : ${last3Posts}">
-            <article th:replace="fragments/postpreview :: postpreview (post=${post})">
+            <article th:replace="fragments/postpreview :: postpreview (post=${post}, currentUser=${currentUser})">
             </article>
         </th:block>
 
