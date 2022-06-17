@@ -162,6 +162,33 @@ button {
     color: #fff;
 }
 
+#noBtn {
+    border-radius: 10px;
+    padding: 5px 25px 5px 25px;
+    background: white;
+    border-color: #D81A5E;
+    color: #3A1026;
+}
+
+#noBtn:hover {
+    background:#D81A5E;
+    border-color: #3A1026;
+    color: #fff;
+}
+
+#yesBtn {
+    border-radius: 10px;
+    padding: 5px 25px 5px 25px;
+    background: darkred;
+    border: none;
+    color: #fff;
+}
+
+#yesBtn:hover {
+    background: #3A1026;
+    color: #fff;
+}
+
 /* Side Nav */
 
 #sidenav {
