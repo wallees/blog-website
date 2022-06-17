@@ -8,41 +8,47 @@
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <nav th:fragment="navigation" class="row justify-content-center" id="navContainer">
-        <div class="col-5 align-items-end">
-            <img id="CFHLogo" src="/images/CFHLogo.svg" alt="Logo for the Carolina Fintech Hub">
-        </div>
-        <div class="col-7 align-self-end justify-content-end">
-            <ul class="row align-items-end" id="navList">
-                    <li class="col text-center"><a class="link-unstyled" href="/">Home</a></li>
+<nav th:fragment="navigation" class="row justify-content-center" id="navContainer">
+    <div class="col-3 align-items-end">
+        <img id="CFHLogo" src="/images/CFHLogo.svg" alt="Logo for the Carolina Fintech Hub">
+    </div>
+    <div class="col-9 align-self-end justify-content-end">
+        <ul class="row align-items-end" id="navList">
+            <li class="col text-center"><a class="link-unstyled" href="/">Home</a></li>
 
-                <th:block sec:authorize="isAuthenticated()">
-                    <li class="col text-center"><a class="link-unstyled" href="/posts">View Posts</a></li>
-                    <li class="col text-center"><a class="link-unstyled" href="/posts/new">Create Post</a></li>
-                    <li class="col text-center"><a class="link-unstyled" href="/users">Members</a></li>
-                    <li class="col text-center"><a class="link-unstyled" href="/logout"><button id="logoutBtn">Logout</button></a></li>
-                </th:block>
+            <th:block sec:authorize="isAuthenticated()">
+                <li class="col text-center"><a class="link-unstyled" href="/posts">View Posts</a></li>
+                <li class="col text-center"><a class="link-unstyled" href="/posts/new">Create Post</a></li>
+                <li class="col text-center"><a class="link-unstyled" href="/users">Members</a></li>
+                <li class="col text-center"><a class="link-unstyled" href="/logout">
+                    <button id="logoutBtn">Logout</button>
+                </a></li>
+            </th:block>
 
-                <th:block sec:authorize="isAnonymous()">
-                    <li class="col text-center"><a class="link-unstyled" href="/posts">View Posts</a></li>
-                    <li class="col text-center"><a class="link-unstyled" href="/login"><button id="loginBtn">Login</button></a></li>
-                    <li class="col text-center"><a class="link-unstyled" href="/register"><button id="registerBtn">Register</button></a></li>
-                </th:block>
-            </ul>
-        </div>
-    </nav>
+            <th:block sec:authorize="isAnonymous()">
+                <li class="col text-center"><a class="link-unstyled" href="/posts">View Posts</a></li>
+                <li class="col text-center"><a class="link-unstyled" href="/login">
+                    <button id="loginBtn">Login</button>
+                </a></li>
+                <li class="col text-center"><a class="link-unstyled" href="/register">
+                    <button id="registerBtn">Register</button>
+                </a></li>
+            </th:block>
+        </ul>
+    </div>
+</nav>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>

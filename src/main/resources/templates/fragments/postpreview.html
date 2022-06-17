@@ -8,33 +8,52 @@
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <article th:fragment="postpreview (post, currentUser)">
-        <a th:href="@{/posts/{id}(id=${post.id})}"><h1 th:text="${post.title}">Post Title</h1></a>
-        <p th:text="${post.body}">Post Content</p>
-        <p>
-            Posted 
-            <span th:if="${post.user != null}">by 
-                <em th:text="${post.user.firstName + ' ' + post.user.lastName + ' (' + post.user.username + ')'}"></em> 
-            </span>
-            on <em th:text="${#dates.format(post.date, 'MMMM dd, yyyy')}">Jan 1, 1970</em>
-        </p>
-        <th:block th:if="${post.user != null && currentUser != null && post.user.id == currentUser.id}">
-            <a th:href="@{/posts/{id}/edit(id=${post.id})}"><button>Edit</button></a>
-            <a th:href="@{/posts/{id}/delete(id=${post.id})}"><button>Delete</button></a>
-        </th:block>
-    </article>
+<article th:fragment="postpreview (post)">
+    <div class="row justify-content-center">
+        <div class="col-10" id="postContainer">
+            <div class="row justify-content-end pt-2 pb-2">
+                <div class="col-3"
+                     th:if="${post.user != null && currentUser != null && post.user.id == currentUser.id}">
+                    <a th:href="@{/posts/{id}/edit(id=${post.id})}">
+                        <button id="editBtn">Edit</button>
+                    </a>
+                </div>
+                <div class="col-6 text-center"><h2 th:text="${post.title}">Post Title</h2></div>
+                <div class="col-3 text-center"></div>
+            </div>
+            <div class="row p-5"><p th:text="${post.body}">Post Content</p></div>
+            <div class="row justify-content-center">
+                <p>
+                    Posted
+                    <span th:if="${post.user != null}">by
+                <em th:if="${currentUser == null || post.user != null && post.user.id != currentUser.id}"
+                    th:text="${post.user.firstName + ' ' + post.user.lastName + ' (' + post.user.username + ')'}"></em>
+                <em th:if="${post.user != null && currentUser != null && post.user.id == currentUser.id}"><b>you</b></em>
+                    </span>
+                    on <em th:text="${#dates.format(post.date, 'MMMM dd, yyyy')}">Jan 1, 1970</em>
+                </p>
+            </div>
+            <div th:if="${post.user != null && currentUser != null && post.user.id == currentUser.id}"
+                 class="row justify-content-center">
+                <a class="col-12 text-center" th:href="@{/posts/{id}/delete(id=${post.id})}">
+                    <button id="deleteBtn">Delete</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>
